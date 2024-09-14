@@ -12,7 +12,9 @@ switch ($opc) {
       1{
         $variable1 = Read-Host -Prompt "Ingresa que archivo hash deseas visualizar bajo los archivos locales"
     } 2{
-        $variable2 = Read-Host -Prompt "Ingresa el listado de archivos ocultos que desea ver"
+        $carpeta= Read-Host "Ingrese la ruta de la carpeta de la cual desea obtener los archivos ocultos"
+        HiddenFiles -ruta "$carpeta" 
+
     } 3{
         Read-Host "Ingresa que recurso deseas ver"
     } 4{
