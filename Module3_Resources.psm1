@@ -30,7 +30,7 @@ function Get-Resources {
     .NOTES
     Autor: David del Toro
     Fecha: 18/09/2024
-    Versión: 1.1
+    Versión: 1.0
     #>
 
     [CmdletBinding()]
