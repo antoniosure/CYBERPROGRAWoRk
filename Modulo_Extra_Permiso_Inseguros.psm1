@@ -4,21 +4,30 @@ Set-StrictMode -Version Latest
 # Función para checar los permisos inseguros
 function Get-InsecureFilePermissions {
     <#
-    .SYNOPSIS
-    Revisa los permisos de archivos y carpetas en la ubicación especificada.
+.FUNCIONALIDAD REAL
+Esta funcion nos ayuda a poder supervisar y analizar de forma facil
+los archivos del directorio que tomamos como path. En general es de
+gran ayuda en la ciberseguridad.
 
-    .DESCRIPTION
-    Analiza los permisos de los archivos y carpetas en una ruta específica y detecta si se supone que hay configuraciones inseguras.
+.DESCRIPTION
+Checa los permisos de los archivos/carpetas en una ruta específica
+y detecta si existen configuraciones que no son lo suficiente seguras
+como asignaciones a 'Everyone' o 'Usuarios'.
 
-    .PARAMETER Path
-    Ruta
+.PARAMETER 
+Path: Ruta del archivo/carpeta del cual se quiere saber si tiene
+permisos seguros o inseguros.
 
-    .NOTITAS
-    Autor: Javier Abraham Palomares Garcia
-    Versión: 1.0
-    #>
-    
-    param (
+.NOTITAS
+Autor: Javier Abraham Palomares Garcia
+
+.EXAMPLE
+Solo ejecuta el comando en tu terminal con el path como en 
+el siguente ejemplo:.
+Get-InsecureFilePermissions -Path "C:\Carpeta"
+Y asi revisamos si los permisos son seguros o inseguros en la carpeta/archivo.
+#>   
+   param (
         [Parameter(Mandatory = $true, HelpMessage = "Escribe la ruta del archivo o carpeta")]
         [string]$Path
     )
