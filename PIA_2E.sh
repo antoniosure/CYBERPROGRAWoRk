@@ -33,22 +33,24 @@ do
   fi
   
   if [ $opc = 2 ]; then
+    check_ifstat_installed
     echo "Seleccione una opción:"
     echo "1) Monitoreo en vivo de la red"
     echo "2) Monitorear la red por un número definido de veces"
     echo "3) Generar reporte de monitoreo"
-    read -p "Elija una opción: " sub_opcion
+    read -pr "Elija una opción: " sub_opcion
+    
     case $sub_opcion in
         1)
             live_network_monitoring
             ;;
         2)
-            read -p "Ingrese la cantidad de veces que quiere monitorear la red: " num
+            read -pr "Ingrese la cantidad de veces que quiere monitorear la red: " num
             network_monitoring $num
             ;;
         3)
-            read -p "Ingrese el nombre del archivo de reporte: " file
-            read -p "Ingrese la cantidad de veces que quiere monitorear: " num
+            read -pr "Ingrese el nombre del archivo de reporte: " file
+            read -pr "Ingrese la cantidad de veces que quiere monitorear: " num
             generate_report $file $num
             ;;
         *)
