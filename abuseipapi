@@ -1,0 +1,17 @@
+#Estos son los links del api
+#CHECK IP -> https://www.abuseipdb.com/check/[IP]/json?key=[API_KEY]&days=[DAYS]
+#CHECK CIDR -> https://www.abuseipdb.com/check-block/json?network=[CIDR]&key=[API_KEY]&days=[DAYS]
+#REPORT IP -> https://www.abuseipdb.com/report/json?key=[API_KEY]&category=[CATEGORIES]&comment=[COMMENT]&ip=[IP]
+
+opc=int(input("""Ingresa la opcion que desees: [1] Para checar si una IP ha sido colocado en la lista negra de IP´S maliciosas
+                [2] Para checar el CIDR ("Familia de Ip´s maliciosas")
+                [3] Para reportar una IP maliciosa."""
+
+if opc == '1':
+  print("Usted entro a la opción de checar si la IP esta en la lista negra de IP´S maliciosas")
+
+if opc == '2': 
+  print("Usted ingreso a la opción de checar la familia siguiented de la IP ingresada")
+
+if opc == '3': 
+  print("Usted ingreso al apa")
