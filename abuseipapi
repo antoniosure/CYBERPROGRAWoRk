@@ -1,3 +1,7 @@
+import reuqests 
+import json
+
+
 #Estos son los links del api
 #CHECK IP -> https://www.abuseipdb.com/check/[IP]/json?key=[API_KEY]&days=[DAYS]
 #CHECK CIDR -> https://www.abuseipdb.com/check-block/json?network=[CIDR]&key=[API_KEY]&days=[DAYS]
@@ -9,6 +13,24 @@ opc=int(input("""Ingresa la opcion que desees: [1] Para checar si una IP ha sido
 
 if opc == '1':
   print("Usted entro a la opción de checar si la IP esta en la lista negra de IP´S maliciosas")
+    
+     url = 'https://api.abuseipdb.com/api/v2/blacklist'
+
+    querystring = {
+        'confidenceMinimum':'90'
+    }
+  with open('apikey.txt', 'r') as archivo:
+    llave = archivo.read() 
+    headers = {
+        'Accept': 'application/json',
+        'Key': llave
+    }
+
+response = requests.request(method='GET', url=url, headers=headers, params=querystring)
+
+# Formatted output
+decodedResponse = json.loads(response.text)
+print json.dumps(decodedResponse, sort_keys=True, indent=4)
 
 if opc == '2': 
   print("Usted ingreso a la opción de checar la familia siguiented de la IP ingresada")
