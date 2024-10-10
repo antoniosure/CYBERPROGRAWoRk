@@ -1,0 +1,28 @@
+# -CODIGO BASE DEL MODULO MODULO DE LOGGS HECHO PARA IMPLEMENTARSE EN CADA MODULO
+# -NOTA:SE DEBE CAMBIAR LA INFORMACION DE LA ¡¡F-STRING!! AL NOMBRE 
+#   ESPECIFICO DE CADA MODULO PARA MAS ORGANIZACION
+# -QUITAR LAS NOTAS EN LA IMPLEMENTACION PARA MEJOR MANEJO
+
+#Empezamos implementando el modulo que genera los registros de python, el cual se llama logging
+import logging
+#Modulo para trabajar con los tiempos y manejar las fechas
+from datetime import datetime
+
+#Funcion del modulo para inicializar la configuracion principal del modulo
+#ademas De dar el archivo en donde se guardaran los logs del modulo.
+def establecer_loggeos(log_file='cyberseguridad_logs.log'):
+    logging.basicConfig(
+        filename=log_file,
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(mensaje)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+
+#Funcion que nos ayuda a registrar cuando un modulo se ejecuta correctamente
+def log_exito(¡¡module_name!!):
+    logging.info(f"El modulo llamado '{¡¡module_name!!}' se ejecuto correctamente :)")
+
+#Funcion que registra cuando un modulo se ejecuta mal
+def log_falla(¡¡module_name!!, error):
+    logging.error(f"El modulo llamado '{module_name}' se ejecuto mal. El error causante de la falla: {error}")
+
