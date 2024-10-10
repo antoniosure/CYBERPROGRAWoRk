@@ -1,0 +1,10 @@
+#MODULO DE EJEMPLO PARA SE MANEJADO POR EL MODULO: ModuloRegistro_Manejo 
+# Basicamente el ejemplo de como deben de ser los 5 modulos de cada opcion
+def ejemplito_Modulo():
+    try:
+        # Lo que tiene que hacer el modulo
+        print("Hacer lo de las apis, los dos faciles o el complejo)  # Es ejemplo
+        log_success(ejemplito_Modulo)  # Registrar éxito
+    except Exception as e:
+        log_failure(ejemplito_Modulo, str(e))  # Registrar el fallo:( 
+        raise # Este hace que 
