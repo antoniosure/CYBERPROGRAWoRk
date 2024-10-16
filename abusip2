@@ -1,3 +1,30 @@
 import requests 
 import json 
+def nametxt():
+  nombrearch=str(input("Ingresa el nombre del archivo donde se encentar la llave de la api."))
 
+def abuseipdb():
+  opc = int(input("""Ingresa la opcion que desees: [1] Para checar si una IP ha sido colocado en la lista negra de IP´S maliciosas
+                [2] Para checar el CIDR ("Familia de Ip´s maliciosas")
+                [3] Para reportar una IP maliciosa."""  
+if opc == '1':
+    print("""Usted entro a la opción de checar si la IP esta en la lista negra de IP´S maliciosas, Para continuar con esta opcion ud deberá proporcionar un archivo que contenga solo la api key
+            Si no cuenta con una la puede obtener en: https://www.abuseipdb.com/login""")
+  IP = int(input("Ingresa la Ip que desea verificar si esta en la lista negra de las Ip's maliciosas"))
+  nametext()
+  API_KEY = open("nombrearch", "r")
+  DAYS = 90
+  url = 'https://www.abuseipdb.com/check/[IP]/json?key=[API_KEY]&days=[DAYS]'
+  response = requests.get(url)
+      if response.status_code== 200: 
+        data = response.json()
+        print(data)
+    else: 
+      return NONE
+if opc == '2': 
+  print("Usted entro a la opcion de checar el CIDR [Familia de subnets que hay en una IP principal]") 
+  CIDR=input("Ingrese la ip con la notación en CIDR [192.168.1.1/24]")
+  nametext()
+  API_KEY = 
+  url = 'https://www.abuseipdb.com/check-block/json?network=[CIDR]&key=[API_KEY]&days=[DAYS]'
+  
