@@ -1,30 +1,77 @@
-import requests 
-import json 
-def nametxt():
-  nombrearch=str(input("Ingresa el nombre del archivo donde se encentar la llave de la api."))
+abuseipbig():
+  import requests 
+  import json 
+  def nametxt():
+    nombrearch=str(input("Ingresa el nombre del archivo donde se encentar la llave de la api."))
 
-def abuseipdb():
-  opc = int(input("""Ingresa la opcion que desees: [1] Para checar si una IP ha sido colocado en la lista negra de IP´S maliciosas
-                [2] Para checar el CIDR ("Familia de Ip´s maliciosas")
-                [3] Para reportar una IP maliciosa."""  
-if opc == '1':
-    print("""Usted entro a la opción de checar si la IP esta en la lista negra de IP´S maliciosas, Para continuar con esta opcion ud deberá proporcionar un archivo que contenga solo la api key
-            Si no cuenta con una la puede obtener en: https://www.abuseipdb.com/login""")
-  IP = int(input("Ingresa la Ip que desea verificar si esta en la lista negra de las Ip's maliciosas"))
-  nametext()
-  API_KEY = open("nombrearch", "r")
-  DAYS = 90
-  url = 'https://www.abuseipdb.com/check/[IP]/json?key=[API_KEY]&days=[DAYS]'
-  response = requests.get(url)
-      if response.status_code== 200: 
+  def abuseipdb():
+    opc = int(input("""Ingresa la opcion que desees: [1] Para checar si una IP ha sido colocado en la lista negra de IP´S maliciosas
+                  [2] Para checar el CIDR ("Familia de Ip´s maliciosas")
+                  [3] Para reportar una IP maliciosa."""  
+  if opc == '1':
+      print("""Usted entro a la opción de checar si la IP esta en la lista negra de IP´S maliciosas, Para continuar con esta opcion ud deberá proporcionar un archivo que contenga solo la api key
+              Si no cuenta con una la puede obtener en: https://www.abuseipdb.com/login""")
+    IP = int(input("Ingresa la Ip que desea verificar si esta en la lista negra de las Ip's maliciosas"))
+    nametext()
+    API_KEY = open("nombrearch", "r")
+    DAYS = 90
+    url = 'https://www.abuseipdb.com/check/[IP]/json?key=[API_KEY]&days=[DAYS]'
+    response = requests.get(url)
+        if response.status_code == 200: 
+          data = response.json()
+          print(data)
+      else: 
+        return NONE
+  if opc == '2': 
+    print("Usted entro a la opcion de checar el CIDR [Familia de subnets que hay en una IP principal]") 
+    CIDR=input("Ingrese la ip con la notación en CIDR [192.168.1.1/24]")
+    nametext()
+    API_KEY = open("nombrearch", "r")
+    DAYS=90
+    url = 'https://www.abuseipdb.com/check-block/json?network=[CIDR]&key=[API_KEY]&days=[DAYS]'
+    response = requesst.get(url)
+      if response.status_code == 200 
         data = response.json()
         print(data)
     else: 
       return NONE
-if opc == '2': 
-  print("Usted entro a la opcion de checar el CIDR [Familia de subnets que hay en una IP principal]") 
-  CIDR=input("Ingrese la ip con la notación en CIDR [192.168.1.1/24]")
-  nametext()
-  API_KEY = 
-  url = 'https://www.abuseipdb.com/check-block/json?network=[CIDR]&key=[API_KEY]&days=[DAYS]'
-  
+  if opc == '3': 
+    print("Inrgeso a la opcion de reportar una IP maliciosa)
+    IP = (input("Ingresa la IP maliciosa"))
+    CATEGORIES = str("""Ingresa el número de categoria a la que pertenece esta IP maliciosa:
+  1	DNS Compromise	Altering DNS records resulting in improper redirection.
+  2	DNS Poisoning	Falsifying domain server cache (cache poisoning).
+  3	Fraud Orders	Fraudulent orders.
+  4	DDoS Attack	Participating in distributed denial-of-service (usually part of botnet).
+  5	FTP Brute-Force	
+  6	Ping of Death	Oversized IP packet.
+  7	Phishing	Phishing websites and/or email.
+  8	Fraud VoIP	
+  9	Open Proxy	Open proxy, open relay, or Tor exit node.
+  10	Web Spam	Comment/forum spam, HTTP referer spam, or other CMS spam.
+  11	Email Spam	Spam email content, infected attachments, and phishing emails. Note: Limit comments to only relevent information (instead of log dumps) and be sure to remove PII if you want to remain anonymous.
+  12	Blog Spam	CMS blog comment spam.
+  13	VPN IP	Conjunctive category.
+  14	Port Scan	Scanning for open ports and vulnerable services.
+  15	Hacking	
+  16	SQL Injection	Attempts at SQL injection.
+  17	Spoofing	Email sender spoofing.
+  18	Brute-Force	Credential brute-force attacks on webpage logins and services like SSH, FTP, SIP, SMTP, RDP, etc. This category is seperate from DDoS attacks.
+  19	Bad Web Bot	Webpage scraping (for email addresses, content, etc) and crawlers that do not honor robots.txt. Excessive requests and user agent spoofing can also be reported here.
+  20	Exploited Host	Host is likely infected with malware and being used for other attacks or to host malicious content. The host owner may not be aware of the compromise. This category is often used in combination with other attack categories.
+  21	Web App Attack	Attempts to probe for or exploit installed web applications such as a CMS like WordPress/Drupal, e-commerce solutions, forum software, phpMyAdmin and various other software plugins/solutions.
+  22	SSH	Secure Shell (SSH) abuse. Use this category in combination with more specific categories.
+  23	IoT Targeted	Abuse was targeted at an "Internet of Things" type device. Include information about what type of device was targeted in the comments. """) 
+    nametext()
+    API_KEY = open("nombrearch", "r")
+    COMMENT = str(input("Ingrese algún comentario acerca la ip maliciosa"))
+    url =  'https://www.abuseipdb.com/report/json?key=[API_KEY]&category=[CATEGORIES]&comment=[COMMENT]&ip=[IP]'
+      response = requesst.get(url)
+      if response.status_code == 200 
+        data = response.json()
+        print(data)
+    else: 
+      return NONE
+
+  abuseipdb()
+abuseipbig()
