@@ -2,8 +2,10 @@ abuseipbig():
   import requests 
   import json 
   def nametxt():
-    nombrearch=str(input("Ingresa el nombre del archivo donde se encentar la llave de la api."))
-
+    try: 
+      nombrearch=str(input("Ingresa el nombre del archivo donde se encentar la llave de la api."))
+    except ValueError: 
+      print("El archivo no ha sido encontrado, vuelva a intentarlo")
   def abuseipdb():
     opc = int(input("""Ingresa la opcion que desees: [1] Para checar si una IP ha sido colocado en la lista negra de IP´S maliciosas
                   [2] Para checar el CIDR ("Familia de Ip´s maliciosas")
